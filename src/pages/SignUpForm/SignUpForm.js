@@ -1,8 +1,12 @@
 import "./SignUpForm.css";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import useUserList from "../../hooks/useUserList";
+import { useNavigate } from "react-router";
 
 const SignUpForm = () => {
+  const { createUser } = useUserList();
+  let navigate = useNavigate();
   const initialValues = {
     username: "",
     password: "",
@@ -28,10 +32,20 @@ const SignUpForm = () => {
     setNewUserData({ ...newUserData, [event.target.id]: event.target.value });
   };
 
-  const onSignUp = (event) => {
+  const onSignUp = async (event) => {
     event.preventDefault();
-    // create user
-    setNewUserData(initialValues);
+    const newUser = {
+      name: newUserData.name,
+      password: newUserData.password,
+      username: newUserData.username,
+    };
+    try {
+      await createUser(newUser);
+      setNewUserData(initialValues);
+      navigate("/login");
+    } catch {
+      console.log("nah");
+    }
   };
 
   return (
