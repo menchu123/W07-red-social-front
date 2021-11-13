@@ -1,8 +1,9 @@
 import "./LoginForm.css";
 import { useEffect, useState } from "react";
-//import useUser from "../../hooks/useUser";
+import useUser from "../../hooks/useUser";
 
 const LoginForm = () => {
+  const { loginUser } = useUser();
   const initialValues = {
     username: "",
     password: "",
@@ -25,7 +26,7 @@ const LoginForm = () => {
 
   const onLogin = (event) => {
     event.preventDefault();
-    // loginUser(userData);
+    loginUser(userData);
     setUserData(initialValues);
   };
 

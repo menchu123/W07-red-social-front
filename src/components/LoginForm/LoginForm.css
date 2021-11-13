@@ -61,6 +61,13 @@
   background-color: #f58eb1;
 }
 
+.login-btn:disabled {
+  background-color: #2e2e2e;
+  color: #815d69;
+  border-color: #815d69;
+  cursor: default;
+}
+
 .sign-up-suggestion {
   border: none;
   background-color: transparent;
