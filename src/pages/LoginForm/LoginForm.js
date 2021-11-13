@@ -2,9 +2,11 @@ import "./LoginForm.css";
 import { useEffect, useState } from "react";
 import useUser from "../../hooks/useUser";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router";
 
 const LoginForm = () => {
   const { loginUser } = useUser();
+  let navigate = useNavigate();
   const initialValues = {
     username: "",
     password: "",
@@ -25,10 +27,15 @@ const LoginForm = () => {
     setUserData({ ...userData, [event.target.id]: event.target.value });
   };
 
-  const onLogin = (event) => {
+  const onLogin = async (event) => {
     event.preventDefault();
-    loginUser(userData);
-    setUserData(initialValues);
+    try {
+      await loginUser(userData);
+      navigate("/");
+      setUserData(initialValues);
+    } catch {
+      console.log("nah");
+    }
   };
 
   return (
