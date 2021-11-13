@@ -21,10 +21,14 @@ function App() {
       dispatch(userLoginAction(jwtDecode(token.token)));
     }
   }, [dispatch]);
+
   return (
     <Router>
       <Routes>
-        <Route path="/*" element={<Homepage />} />
+        <Route
+          path="/*"
+          element={user.isAuthenticated ? <Homepage /> : <LoginForm />}
+        />
         <Route path="/login" element={<LoginForm />} />
         <Route path="/signup" element={<SignUpForm />} />
       </Routes>
