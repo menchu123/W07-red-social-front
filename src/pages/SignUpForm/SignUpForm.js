@@ -1,9 +1,8 @@
 import "./SignUpForm.css";
 import { useEffect, useState } from "react";
-import useUser from "../../hooks/useUser";
+import { Link } from "react-router-dom";
 
 const SignUpForm = () => {
-  const { loginUser } = useUser();
   const initialValues = {
     username: "",
     password: "",
@@ -29,9 +28,9 @@ const SignUpForm = () => {
     setNewUserData({ ...newUserData, [event.target.id]: event.target.value });
   };
 
-  const onLogin = (event) => {
+  const onSignUp = (event) => {
     event.preventDefault();
-    loginUser(newUserData);
+    // create user
     setNewUserData(initialValues);
   };
 
@@ -40,7 +39,7 @@ const SignUpForm = () => {
       className="login-form"
       noValidate
       autoComplete="off"
-      onSubmit={onLogin}
+      onSubmit={onSignUp}
     >
       <h5 className="login-title">Sign up</h5>
       <div className="form-inputs">
@@ -74,9 +73,11 @@ const SignUpForm = () => {
         <button type="submit" className="login-btn" disabled={isDisabled}>
           SIGN UP
         </button>
-        <button className="sign-up-suggestion">
-          Already have an account? Log in!
-        </button>
+        <Link to="/login">
+          <button className="sign-up-suggestion">
+            Already have an account? Log in!
+          </button>
+        </Link>
       </div>
     </form>
   );

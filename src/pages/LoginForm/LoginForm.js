@@ -1,6 +1,7 @@
 import "./LoginForm.css";
 import { useEffect, useState } from "react";
 import useUser from "../../hooks/useUser";
+import { Link } from "react-router-dom";
 
 const LoginForm = () => {
   const { loginUser } = useUser();
@@ -60,9 +61,11 @@ const LoginForm = () => {
         <button type="submit" className="login-btn" disabled={isDisabled}>
           LOGIN
         </button>
-        <button className="sign-up-suggestion">
-          Don't have an account? Sign up!
-        </button>
+        <Link to="/signup">
+          <button className="sign-up-suggestion">
+            Don't have an account? Sign up!
+          </button>
+        </Link>
       </div>
     </form>
   );
