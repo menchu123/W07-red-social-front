@@ -6,8 +6,9 @@ const useUser = () => {
   const user = useSelector(({ user }) => user);
   const dispatch = useDispatch();
 
-  const loginUser = (user) => {
-    dispatch(loginUserThunk(user));
+  const loginUser = async (user) => {
+    const response = await dispatch(loginUserThunk(user));
+    return response;
   };
 
   const logoutUser = () => {

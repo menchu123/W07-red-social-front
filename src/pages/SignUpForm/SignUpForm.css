@@ -1,8 +1,8 @@
-.login-form {
+.signup-form {
   width: 300px;
   height: 300px;
   padding: 30px;
-  margin: 100px auto;
+  margin: 100px auto 0;
   background-color: #2e2e2e;
   color: #f58eb1;
   display: flex;
@@ -13,12 +13,12 @@
   border-radius: 5px;
 }
 
-.login-title {
+.signup-title {
   margin: 0;
   font-size: 30px;
 }
 
-.login-form input {
+.signup-form input {
   height: 30px;
   width: 95%;
   margin-bottom: 25px;
@@ -29,7 +29,7 @@
   padding: 0 5px;
 }
 
-.login-form input:focus-visible {
+.signup-form input:focus-visible {
   outline: none;
 }
 
@@ -44,7 +44,7 @@
   font-family: inherit;
 }
 
-.login-btn {
+.signup-btn {
   font-family: inherit;
   font-weight: 800;
   color: #f58eb1;
@@ -56,12 +56,12 @@
   cursor: pointer;
 }
 
-.login-btn:hover {
+.signup-btn:hover {
   color: #2e2e2e;
   background-color: #f58eb1;
 }
 
-.login-btn:disabled {
+.signup-btn:disabled {
   background-color: #2e2e2e;
   color: #815d69;
   border-color: #815d69;
@@ -80,4 +80,38 @@
 
 .sign-up-suggestion:hover {
   color: #e9e9e9;
+}
+
+.username-error {
+  animation: shake 0.3s;
+  width: 100%;
+  color: red;
+  text-align: center;
+}
+
+.shake {
+  animation: shake 0.3s;
+}
+
+@keyframes shake {
+  10%,
+  90% {
+    transform: translate3d(-1px, 0, 0);
+  }
+
+  20%,
+  80% {
+    transform: translate3d(2px, 0, 0);
+  }
+
+  30%,
+  50%,
+  70% {
+    transform: translate3d(-4px, 0, 0);
+  }
+
+  40%,
+  60% {
+    transform: translate3d(4px, 0, 0);
+  }
 }

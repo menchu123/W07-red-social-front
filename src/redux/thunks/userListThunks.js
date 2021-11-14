@@ -25,6 +25,11 @@ export const createUserThunk = (user) => async (dispatch) => {
       "Content-Type": "application/json",
     },
   });
-  user = await response.json();
-  dispatch(createUserAction(user));
+  if (response === 200) {
+    user = await response.json();
+    dispatch(createUserAction(user));
+  }
+  if (response !== 200) {
+    return await response.json();
+  }
 };
