@@ -1,20 +1,24 @@
 import "./User.css";
 
-const User = () => {
+const User = ({ user }) => {
   return (
     <section className="user">
       <div className="user__top">
         <img
-          src="https://cdn.discordapp.com/attachments/896125607170179202/901820331956789248/IMG_3318.jpg"
-          alt=""
+          src={
+            user.photo
+              ? user.photo
+              : "https://i.scdn.co/image/ab67616d0000b2736f79fa715039164d02ddf1a8"
+          }
+          alt={user.name}
           className="user__photo"
           height="150"
           width="150"
         />
         <div className="user__data">
           <div className="user__names">
-            <span className="user__name">Elsa</span>
-            <span className="user__username">@elsithecroc</span>
+            <span className="user__name">{user.name}</span>
+            <span className="user__username">@{user.username}</span>
           </div>
 
           <div className="friend-buttons">
@@ -24,8 +28,7 @@ const User = () => {
         </div>
       </div>
       <div className="user__bio">
-        Hola por favor dame comida no he comido nunca por favor señor deme de
-        comer tengo hambre
+        {user.bio ? user.bio : "Hello, I'm new at Frenemies!"}
       </div>
     </section>
   );

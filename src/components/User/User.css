@@ -1,6 +1,6 @@
 .user {
   width: 400px;
-  height: 280px;
+  height: 260px;
   background-color: #2e2e2e;
   padding: 30px;
   margin-bottom: 30px;
@@ -45,6 +45,7 @@
   font-weight: 900;
   color: #57554f;
   transform: rotate(90deg);
+  cursor: pointer;
 }
 
 .friend-button--friend {

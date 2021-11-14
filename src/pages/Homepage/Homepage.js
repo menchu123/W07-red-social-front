@@ -4,37 +4,18 @@ import useUserList from "../../hooks/useUserList";
 import "./Homepage.css";
 
 const Homepage = () => {
-  const { loadUserList } = useUserList();
+  const { loadUserList, userList } = useUserList();
 
   useEffect(() => {
     loadUserList();
   }, [loadUserList]);
   return (
     <ul className="user-list">
-      <li className="col mt-3">
-        <User />
-      </li>
-      <li className="col mt-3">
-        <User />
-      </li>
-      <li className="col mt-3">
-        <User />
-      </li>
-      <li className="col mt-3">
-        <User />
-      </li>
-      <li className="col mt-3">
-        <User />
-      </li>
-      <li className="col mt-3">
-        <User />
-      </li>
-      <li className="col mt-3">
-        <User />
-      </li>
-      <li className="col mt-3">
-        <User />
-      </li>
+      {userList.map((user, index) => (
+        <li className="user-list-item" key={index}>
+          <User key={user.id} user={user} />
+        </li>
+      ))}
     </ul>
   );
 };
