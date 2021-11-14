@@ -1,5 +1,4 @@
-import { useDispatch } from "react-redux";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { userLogoutAction } from "../redux/actions/actionCreators";
 import { loginUserThunk } from "../redux/thunks/userThunks";
 

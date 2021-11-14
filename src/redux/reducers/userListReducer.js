@@ -1,7 +1,7 @@
 import actionTypes from "../actions/actionTypes";
 
 const userListReducer = (userList = [], action) => {
-  let newUserList = userList;
+  let newUserList;
 
   switch (action.type) {
     case actionTypes.loadUsers:
