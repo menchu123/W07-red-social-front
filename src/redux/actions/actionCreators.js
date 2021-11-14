@@ -9,9 +9,9 @@ export const userLogoutAction = () => ({
   type: actionTypes.logoutUser,
 });
 
-export const loadUsersAction = (users) => ({
+export const loadUsersAction = (userList) => ({
   type: actionTypes.loadUsers,
-  users,
+  userList,
 });
 
 export const createUserAction = (user) => ({

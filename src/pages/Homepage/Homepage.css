@@ -1,0 +1,11 @@
+.user-list {
+  box-sizing: border-box;
+  list-style-type: none;
+  width: 100%;
+  height: min-content;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 400px);
+  justify-content: space-around;
+  grid-gap: 30px;
+  padding: 0 70px;
+}
