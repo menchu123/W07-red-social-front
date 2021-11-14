@@ -5,3 +5,22 @@
   font-style: italic;
   letter-spacing: 3px;
 }
+.toplinks {
+  margin-left: 20px;
+}
+
+.top-button--logout {
+  background: none;
+  color: inherit;
+  border: none;
+  padding: 0;
+  font: inherit;
+  cursor: pointer;
+  outline: inherit;
+}
+
+.top-button {
+  color: #f58eb1;
+  text-decoration: underline;
+  margin-right: 10px;
+}
