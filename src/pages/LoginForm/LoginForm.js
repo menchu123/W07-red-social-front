@@ -33,7 +33,6 @@ const LoginForm = () => {
     event.preventDefault();
     setUserData(initialValues);
     const response = await loginUser(userData);
-    console.log(response);
     if (!response) {
       navigate("/");
     } else {
