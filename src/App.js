@@ -8,9 +8,11 @@ import { userLoginAction } from "./redux/actions/actionCreators";
 import jwtDecode from "jwt-decode";
 import Homepage from "./pages/Homepage/Homepage";
 import SignUpForm from "./pages/SignUpForm/SignUpForm";
+import MyProfile from "./pages/MyProfile/MyProfile";
 
 function App() {
   const { user, logoutUser } = useUser();
+
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -43,7 +45,7 @@ function App() {
               >
                 Log out
               </button>
-              <Link className="top-button top-button--profile" to="/">
+              <Link className="top-button top-button--profile" to="/myprofile">
                 My Profile
               </Link>
             </div>
@@ -57,6 +59,7 @@ function App() {
             element={user.isAuthenticated ? <Homepage /> : <LoginForm />}
           />
           <Route path="/login" element={<LoginForm />} />
+          <Route path="/myprofile" element={<MyProfile />} />
           <Route path="/signup" element={<SignUpForm />} />
         </Routes>
       </Router>

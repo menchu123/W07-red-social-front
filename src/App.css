@@ -6,7 +6,9 @@
   letter-spacing: 3px;
 }
 .toplinks {
-  margin-left: 20px;
+  position: absolute;
+  top: 30px;
+  right: 40px;
 }
 
 .top-button--logout {
