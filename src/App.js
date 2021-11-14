@@ -24,7 +24,9 @@ function App() {
 
   return (
     <>
-      <h1 className="frenemies-logo">frenemies</h1>
+      <header className="header">
+        <h1 className="frenemies-logo">frenemies</h1>
+      </header>
       <Router>
         <Routes>
           <Route
