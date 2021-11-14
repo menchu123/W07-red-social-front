@@ -1,14 +1,17 @@
+.header {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
 .frenemies-logo {
-  width: 100%;
+  max-width: max-content;
   text-align: center;
   color: #f58eb1;
   font-style: italic;
   letter-spacing: 3px;
-}
-.toplinks {
-  position: absolute;
-  top: 30px;
-  right: 40px;
+  position: relative;
+  left: 30px;
 }
 
 .top-button--logout {
@@ -25,12 +28,6 @@
   color: #f58eb1;
   text-decoration: underline;
   margin-right: 10px;
-}
-
-.header__friend-buttons {
-  position: absolute;
-  top: 20px;
-  left: 40px;
 }
 
 .header__friend-button {
