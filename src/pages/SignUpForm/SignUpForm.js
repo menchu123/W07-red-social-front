@@ -43,7 +43,7 @@ const SignUpForm = () => {
     };
     const response = await createUser(newUser);
     setNewUserData(initialValues);
-    if (response === undefined) {
+    if (!response.error) {
       navigate("/login");
     } else {
       setUsernameTaken(true);
