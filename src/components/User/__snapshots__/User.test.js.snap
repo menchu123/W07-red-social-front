@@ -1,0 +1,57 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Given a User component When it recives and object then it should render a card with the object info inside 1`] = `
+<section
+  className="user"
+>
+  <div
+    className="user__top"
+  >
+    <img
+      alt="Ramón"
+      className="user__photo"
+      height="150"
+      src="https://i.scdn.co/image/ab67616d0000b2736f79fa715039164d02ddf1a8"
+      width="150"
+    />
+    <div
+      className="user__data"
+    >
+      <div
+        className="user__names"
+      >
+        <span
+          className="user__name"
+        >
+          Ramón
+        </span>
+        <span
+          className="user__username"
+        >
+          @
+          elsithecroc
+        </span>
+      </div>
+      <div
+        className="friend-buttons"
+      >
+        <button
+          className="friend-button friend-button--friend"
+        >
+          :)
+        </button>
+        <button
+          className="friend-button friend-button--enemy"
+        >
+          :(
+        </button>
+      </div>
+    </div>
+  </div>
+  <div
+    className="user__bio"
+  >
+    Hello, I'm new at Frenemies!
+  </div>
+</section>
+`;
