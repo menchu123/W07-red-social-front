@@ -24,7 +24,6 @@ const useUser = () => {
     );
     if (token) {
       const currentUserId = jwtDecode(token.token).id;
-      console.log(currentUserId);
       const response = await fetch(urlApi + `users/${currentUserId}`, {
         method: "GET",
         headers: {

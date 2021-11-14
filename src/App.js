@@ -1,5 +1,5 @@
 import "./App.css";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import LoginForm from "./pages/LoginForm/LoginForm";
 import { useEffect } from "react";
 import useUser from "./hooks/useUser";
@@ -10,7 +10,7 @@ import Homepage from "./pages/Homepage/Homepage";
 import SignUpForm from "./pages/SignUpForm/SignUpForm";
 
 function App() {
-  const { user } = useUser();
+  const { user, logoutUser } = useUser();
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -22,12 +22,35 @@ function App() {
     }
   }, [dispatch]);
 
+  const onLogout = (event) => {
+    event.preventDefault();
+    logoutUser();
+    localStorage.removeItem(process.env.REACT_APP_LOCAL_STORAGE);
+  };
+
   return (
     <>
-      <header className="header">
-        <h1 className="frenemies-logo">frenemies</h1>
-      </header>
       <Router>
+        <header className="header">
+          <Link to="/">
+            <h1 className="frenemies-logo">frenemies</h1>
+          </Link>
+          {user.isAuthenticated ? (
+            <div className="toplinks">
+              <button
+                className="top-button top-button--logout"
+                onClick={onLogout}
+              >
+                Log out
+              </button>
+              <Link className="top-button top-button--profile" to="/">
+                My Profile
+              </Link>
+            </div>
+          ) : (
+            ""
+          )}
+        </header>
         <Routes>
           <Route
             path="/*"
