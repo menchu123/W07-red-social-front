@@ -1,5 +1,8 @@
 import "./App.css";
+// eslint-disable-next-line no-unused-vars
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+
 import LoginForm from "./pages/LoginForm/LoginForm";
 import { useEffect } from "react";
 import useUser from "./hooks/useUser";
@@ -12,6 +15,7 @@ import MyProfile from "./pages/MyProfile/MyProfile";
 
 function App() {
   const { user, logoutUser } = useUser();
+  let navigate = useNavigate();
 
   const dispatch = useDispatch();
 
@@ -32,49 +36,50 @@ function App() {
 
   return (
     <>
-      <Router>
-        <header className="header">
-          {user.isAuthenticated ? (
-            <div className="header__friend-buttons">
-              <button className="header__friend-button header__friend-button--friend">
-                :)
-              </button>
-              <button className="header__friend-button header__friend-button--enemy">
-                :(
-              </button>
-            </div>
-          ) : (
-            ""
-          )}
-          <Link to="/">
-            <h1 className="frenemies-logo">frenemies</h1>
-          </Link>
-          {user.isAuthenticated ? (
-            <div className="toplinks">
-              <button
-                className="top-button top-button--logout"
-                onClick={onLogout}
-              >
-                Log out
-              </button>
-              <Link className="top-button top-button--profile" to="/myprofile">
-                My Profile
-              </Link>
-            </div>
-          ) : (
-            ""
-          )}
-        </header>
-        <Routes>
-          <Route
-            path="/*"
-            element={user.isAuthenticated ? <Homepage /> : <LoginForm />}
-          />
-          <Route path="/login" element={<LoginForm />} />
-          <Route path="/myprofile" element={<MyProfile />} />
-          <Route path="/signup" element={<SignUpForm />} />
-        </Routes>
-      </Router>
+      <header className="header">
+        {user.isAuthenticated ? (
+          <div className="header__friend-buttons">
+            <button className="header__friend-button header__friend-button--friend">
+              :)
+            </button>
+            <button className="header__friend-button header__friend-button--enemy">
+              :(
+            </button>
+          </div>
+        ) : (
+          ""
+        )}
+        <Link to="/">
+          <h1 className="frenemies-logo">frenemies</h1>
+        </Link>
+        {user.isAuthenticated ? (
+          <div className="toplinks">
+            <button
+              className="top-button top-button--logout"
+              onClick={(event) => {
+                onLogout(event);
+                navigate("/");
+              }}
+            >
+              Log out
+            </button>
+            <Link className="top-button top-button--profile" to="/myprofile">
+              My Profile
+            </Link>
+          </div>
+        ) : (
+          ""
+        )}
+      </header>
+      <Routes>
+        <Route
+          path="/*"
+          element={user.isAuthenticated ? <Homepage /> : <LoginForm />}
+        />
+        <Route path="/login" element={<LoginForm />} />
+        <Route path="/myprofile" element={<MyProfile />} />
+        <Route path="/signup" element={<SignUpForm />} />
+      </Routes>
     </>
   );
 }
