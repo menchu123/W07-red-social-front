@@ -1,7 +1,6 @@
 import axios from "axios";
 import jwtDecode from "jwt-decode";
 import { userLoginAction } from "../actions/actionCreators";
-//import { rejectWithValue } from "thunk";
 
 const urlApi = "https://red-social-back-menchu.herokuapp.com/";
 

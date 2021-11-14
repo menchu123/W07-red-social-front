@@ -18,3 +18,8 @@ export const createUserAction = (user) => ({
   type: actionTypes.createUser,
   user,
 });
+
+export const loadCurrentUserAction = (currentUser) => ({
+  type: actionTypes.loadCurrentUser,
+  currentUser,
+});
