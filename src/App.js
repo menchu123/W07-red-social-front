@@ -23,16 +23,19 @@ function App() {
   }, [dispatch]);
 
   return (
-    <Router>
-      <Routes>
-        <Route
-          path="/*"
-          element={user.isAuthenticated ? <Homepage /> : <LoginForm />}
-        />
-        <Route path="/login" element={<LoginForm />} />
-        <Route path="/signup" element={<SignUpForm />} />
-      </Routes>
-    </Router>
+    <>
+      <h1 className="frenemies-logo">frenemies</h1>
+      <Router>
+        <Routes>
+          <Route
+            path="/*"
+            element={user.isAuthenticated ? <Homepage /> : <LoginForm />}
+          />
+          <Route path="/login" element={<LoginForm />} />
+          <Route path="/signup" element={<SignUpForm />} />
+        </Routes>
+      </Router>
+    </>
   );
 }
 
