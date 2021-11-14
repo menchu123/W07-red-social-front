@@ -5,9 +5,10 @@ import { loginUserThunk } from "../redux/thunks/userThunks";
 const useUser = () => {
   const user = useSelector(({ user }) => user);
   const dispatch = useDispatch();
-
-  const loginUser = (user) => {
-    dispatch(loginUserThunk(user));
+  let response;
+  const loginUser = async (user) => {
+    response = await dispatch(loginUserThunk(user));
+    return response;
   };
 
   const logoutUser = () => {

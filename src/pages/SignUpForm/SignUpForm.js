@@ -50,12 +50,12 @@ const SignUpForm = () => {
 
   return (
     <form
-      className="login-form"
+      className="signup-form"
       noValidate
       autoComplete="off"
       onSubmit={onSignUp}
     >
-      <h5 className="login-title">Sign up</h5>
+      <h5 className="signup-title">Sign up</h5>
       <div className="form-inputs">
         <input
           type="text"
@@ -84,7 +84,7 @@ const SignUpForm = () => {
           onChange={(event) => onChange(event)}
         />
 
-        <button type="submit" className="login-btn" disabled={isDisabled}>
+        <button type="submit" className="signup-btn" disabled={isDisabled}>
           SIGN UP
         </button>
         <Link to="/login">
