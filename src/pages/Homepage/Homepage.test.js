@@ -1,4 +1,4 @@
-import { render, screen, waitFor } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import configureStore from "../../redux/store/index";
 import { Provider } from "react-redux";
 import { BrowserRouter as Router } from "react-router-dom";
