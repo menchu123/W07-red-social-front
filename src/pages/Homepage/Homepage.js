@@ -10,7 +10,7 @@ const Homepage = () => {
     loadUserList();
   }, [loadUserList]);
 
-  return (
+  return userList.length ? (
     <ul className="user-list">
       {userList.map((user, index) => (
         <li className="user-list-item" key={index}>
@@ -18,6 +18,8 @@ const Homepage = () => {
         </li>
       ))}
     </ul>
+  ) : (
+    <h2 className="loading">loading...</h2>
   );
 };
 
