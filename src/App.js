@@ -34,14 +34,18 @@ function App() {
     <>
       <Router>
         <header className="header">
-          <div className="header__friend-buttons">
-            <button className="header__friend-button header__friend-button--friend">
-              :)
-            </button>
-            <button className="header__friend-button header__friend-button--enemy">
-              :(
-            </button>
-          </div>
+          {user.isAuthenticated ? (
+            <div className="header__friend-buttons">
+              <button className="header__friend-button header__friend-button--friend">
+                :)
+              </button>
+              <button className="header__friend-button header__friend-button--enemy">
+                :(
+              </button>
+            </div>
+          ) : (
+            ""
+          )}
           <Link to="/">
             <h1 className="frenemies-logo">frenemies</h1>
           </Link>
