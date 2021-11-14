@@ -29,6 +29,7 @@ const LoginForm = () => {
   };
 
   const onLogin = async (event) => {
+    setWrongCredentials(false);
     event.preventDefault();
     setUserData(initialValues);
     const response = await loginUser(userData);
