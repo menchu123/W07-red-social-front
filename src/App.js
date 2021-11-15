@@ -73,11 +73,14 @@ function App() {
       </header>
       <Routes>
         <Route
-          path="/*"
+          path="/"
           element={user.isAuthenticated ? <Homepage /> : <LoginForm />}
         />
         <Route path="/login" element={<LoginForm />} />
-        <Route path="/myprofile" element={<MyProfile />} />
+        <Route
+          path="/myprofile"
+          element={user.isAuthenticated ? <MyProfile /> : <LoginForm />}
+        />
         <Route path="/signup" element={<SignUpForm />} />
       </Routes>
     </>
