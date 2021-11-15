@@ -7,7 +7,6 @@ export const loadCurrentUserThunk = () => async (dispatch) => {
   const { token } = JSON.parse(
     localStorage.getItem(process.env.REACT_APP_LOCAL_STORAGE)
   );
-  console.log(token);
   const currentUserId = jwtDecode(token).id;
   const response = await fetch(urlApi + `users/${currentUserId}`, {
     method: "GET",

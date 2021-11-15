@@ -28,5 +28,5 @@ export const createUserThunk = (user) => async (dispatch) => {
   if (response.status === 200) {
     dispatch(createUserAction(user));
   }
-  return await response.json();
+  return await response.status;
 };
