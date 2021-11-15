@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import useCurrentUser from "../../hooks/useCurrentUser";
 import "./EditProfile.css";
 
@@ -9,10 +9,20 @@ const EditProfile = () => {
     loadCurrentUser();
   }, [loadCurrentUser]);
 
-  const user = currentUser;
+  const [user, setUser] = useState({});
+
+  useEffect(() => {
+    setUser({ ...currentUser });
+  }, [currentUser]);
+
+  console.log(user);
+
+  const onChange = (event) => {
+    setUser({ ...user, [event.target.id]: event.target.value });
+  };
 
   return (
-    user && (
+    currentUser && (
       <form className="editProfile">
         <div className="editProfile__top">
           <img
@@ -30,21 +40,27 @@ const EditProfile = () => {
             <div className="editProfile__names">
               <input
                 type="text"
+                id="name"
                 className="editProfile__name"
                 value={user.name}
+                onChange={(event) => onChange(event)}
               ></input>
               <div>
                 <span className="editProfile_username-prepend">@</span>
                 <input
+                  id="username"
                   className="editProfile__username"
                   value={user.username}
+                  onChange={(event) => onChange(event)}
                 ></input>
               </div>
             </div>
             <input
               type="text"
+              id="bio"
               className="editProfile__bio"
               value={user.bio ? user.bio : "Hello, I'm new at Frenemies!"}
+              onChange={(event) => onChange(event)}
             ></input>
           </div>
         </div>
