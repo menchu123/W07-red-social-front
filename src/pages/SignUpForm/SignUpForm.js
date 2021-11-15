@@ -41,9 +41,9 @@ const SignUpForm = () => {
       password: newUserData.password,
       username: newUserData.username,
     };
-    const response = await createUser(newUser);
+    const responseStatus = await createUser(newUser);
     setNewUserData(initialValues);
-    if (!response.error) {
+    if (responseStatus === 200) {
       navigate("/login");
     } else {
       setUsernameTaken(true);

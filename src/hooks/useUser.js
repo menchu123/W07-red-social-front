@@ -7,8 +7,8 @@ const useUser = () => {
   const dispatch = useDispatch();
 
   const loginUser = async (user) => {
-    const response = await dispatch(loginUserThunk(user));
-    return response;
+    const responseStatus = await dispatch(loginUserThunk(user));
+    return responseStatus;
   };
 
   const logoutUser = () => {

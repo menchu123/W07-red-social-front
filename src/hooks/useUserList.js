@@ -15,8 +15,8 @@ const useUserList = () => {
 
   const createUser = useCallback(
     async (user) => {
-      const response = await dispatch(createUserThunk(user));
-      return response;
+      const responseStatus = await dispatch(createUserThunk(user));
+      return responseStatus;
     },
     [dispatch]
   );
