@@ -12,6 +12,7 @@ import jwtDecode from "jwt-decode";
 import Homepage from "./pages/Homepage/Homepage";
 import SignUpForm from "./pages/SignUpForm/SignUpForm";
 import MyProfile from "./pages/MyProfile/MyProfile";
+import EditProfile from "./pages/EditProfile/EditProfile";
 
 function App() {
   const { user, logoutUser } = useUser();
@@ -80,6 +81,10 @@ function App() {
         <Route
           path="/myprofile"
           element={user.isAuthenticated ? <MyProfile /> : <LoginForm />}
+        />
+        <Route
+          path="/editprofile"
+          element={user.isAuthenticated ? <EditProfile /> : <LoginForm />}
         />
         <Route path="/signup" element={<SignUpForm />} />
       </Routes>

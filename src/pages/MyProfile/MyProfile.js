@@ -1,9 +1,11 @@
 import { useEffect } from "react";
+import { useNavigate } from "react-router";
 import useCurrentUser from "../../hooks/useCurrentUser";
 import "./MyProfile.css";
 
 const MyProfile = () => {
   const { loadCurrentUser, currentUser } = useCurrentUser();
+  const navigate = useNavigate();
 
   useEffect(() => {
     loadCurrentUser();
@@ -36,7 +38,14 @@ const MyProfile = () => {
             </div>
           </div>
         </div>
-        <button className="edit-button">Edit</button>
+        <button
+          className="edit-button"
+          onClick={() => {
+            navigate("/editprofile");
+          }}
+        >
+          Edit
+        </button>
       </section>
     )
   );
