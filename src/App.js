@@ -1,7 +1,7 @@
 import "./App.css";
 // eslint-disable-next-line no-unused-vars
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Navigate } from "react-router-dom";
 
 import LoginForm from "./pages/LoginForm/LoginForm";
 import { useEffect } from "react";
@@ -80,13 +80,20 @@ function App() {
         <Route path="/login" element={<LoginForm />} />
         <Route
           path="/myprofile"
-          element={user.isAuthenticated ? <MyProfile /> : <LoginForm />}
+          element={
+            user.isAuthenticated ? <MyProfile /> : <Navigate to="/login" />
+          }
         />
         <Route
           path="/editprofile"
-          element={user.isAuthenticated ? <EditProfile /> : <LoginForm />}
+          element={
+            user.isAuthenticated ? <EditProfile /> : <Navigate to="/login" />
+          }
         />
-        <Route path="/signup" element={<SignUpForm />} />
+        <Route
+          path="/signup"
+          element={user.isAuthenticated ? <Navigate to="/" /> : <SignUpForm />}
+        />
       </Routes>
     </>
   );
