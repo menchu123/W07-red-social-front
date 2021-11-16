@@ -1,21 +1,29 @@
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import useCurrentUser from "../../hooks/useCurrentUser";
 import "./EditProfile.css";
 
 const EditProfile = () => {
   const { loadCurrentUser, currentUser } = useCurrentUser();
 
+  const initialValues = useMemo(() => {
+    return {
+      name: "",
+      username: "",
+      bio: "",
+    };
+  }, []);
+
   useEffect(() => {
     loadCurrentUser();
   }, [loadCurrentUser]);
 
-  const [user, setUser] = useState({});
+  const [user, setUser] = useState(initialValues);
 
   useEffect(() => {
-    setUser({ ...currentUser });
+    if (currentUser.name) {
+      setUser({ ...currentUser });
+    }
   }, [currentUser]);
-
-  console.log(user);
 
   const onChange = (event) => {
     setUser({ ...user, [event.target.id]: event.target.value });
